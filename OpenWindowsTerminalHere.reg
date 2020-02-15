@@ -1,0 +1,86 @@
+Windows Registry Editor Version 5.00
+
+; This registry file allows you to right click on a folder in
+; Windows Explorer to open it in Windows Terminal.
+
+; To install this, right click on this file in Windows Explorer
+; and select Merge.
+; The Windows Registry app will ask you for permission to modify
+; your computer, followed by a warning from the Registry Editor
+; about the general risks of modifying your Windows registry.
+; Click Yes to both if you are ok with this.
+; You can review the changes below that will be made to your registry.
+
+; NOTE: Using %LOCALAPPDATA% in the path of the application under
+; the 'shell\...\command' key doesn't seem to allow the app to launch,
+; so for now, they need to be replaced with the actual path.
+;     e.g., C:\\Users\\<username>\\AppData\\Local
+; where <username> is your user name.
+
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWindowsTerminalHere]
+"MUIVerb"="Open Windows Terminal..."
+"subcommands"=""
+"Icon"="%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\wt_32.ico"
+
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWindowsTerminalHere\shell]
+
+; This will make it appear when you right click ON a folder
+; The "Icon" line can be removed if you don't want the icon to appear
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWindowsTerminalHere\shell\10_default]
+@="Default"
+"Icon"="%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\wt_32.ico"
+"CommandFlags"=dword:00000040 ; Draw a Separator below this entry
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWindowsTerminalHere\shell\10_default\command]
+@="\"%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\wt.exe\" -d \"%1\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWindowsTerminalHere\shell\20_cmd]
+@="cmd"
+"Icon"="%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\CMD_32px.ico"
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWindowsTerminalHere\shell\20_cmd\command]
+@="\"%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\wt.exe\" -p \"cmd\" -d \"%1\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWindowsTerminalHere\shell\30_windowspowershell]
+@="Windows PowerShell"
+"Icon"="%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\powershell_32px.ico"
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWindowsTerminalHere\shell\30_windowspowershell\command]
+@="\"%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\wt.exe\" -p \"Windows PowerShell\" -d \"%1\""
+
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWindowsTerminalHere\shell\40_ubuntu]
+@="Ubuntu"
+"Icon"="%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\ubuntu_32px.ico"
+[HKEY_CLASSES_ROOT\Directory\shell\OpenWindowsTerminalHere\shell\40_ubuntu\command]
+@="\"%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\wt.exe\" -p \"Ubuntu\" -d \"%1\""
+
+; This will make it appear when you right click INSIDE a folder
+; The "Icon" line can be removed if you don't want the icon to appear
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWindowsTerminalHere]
+"MUIVerb"="Open Windows Terminal..."
+"subcommands"=""
+"Icon"="%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\wt_32.ico"
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWindowsTerminalHere\shell]
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWindowsTerminalHere\shell\10_default]
+@="Default"
+"Icon"="%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\wt_32.ico"
+"CommandFlags"=dword:00000040 ; Draw a Separator below this entry
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWindowsTerminalHere\shell\10_default\command]
+@="\"%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\wt.exe\" -d \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWindowsTerminalHere\shell\20_cmd]
+@="cmd"
+"Icon"="%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\CMD_32px.ico"
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWindowsTerminalHere\shell\20_cmd\command]
+@="\"%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\wt.exe\" -p \"cmd\" -d \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWindowsTerminalHere\shell\30_windowspowershell]
+@="Windows PowerShell"
+"Icon"="%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\powershell_32px.ico"
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWindowsTerminalHere\shell\30_windowspowershell\command]
+@="\"%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\wt.exe\" -p \"Windows PowerShell\" -d \"%V\""
+
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWindowsTerminalHere\shell\40_ubuntu]
+@="Ubuntu"
+"Icon"="%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\ubuntu_32px.ico"
+[HKEY_CLASSES_ROOT\Directory\Background\shell\OpenWindowsTerminalHere\shell\40_ubuntu\command]
+@="\"%LOCALAPPDATA%\\Microsoft\\WindowsApps\\Microsoft.WindowsTerminal_8wekyb3d8bbwe\\wt.exe\" -p \"Ubuntu\" -d \"%V\""
